@@ -23,10 +23,6 @@ module Quorum
       :blastp_job,
       :reject_if => proc { |attributes| attributes['queue'] == '0' }
 
-    attr_accessible :sequence, :na_sequence, :aa_sequence,
-      :blastn_job_attributes, :blastx_job_attributes, :tblastn_job_attributes,
-      :blastp_job_attributes
-
     validates_associated :blastn_job, :blastx_job, :tblastn_job, :blastp_job
 
     validate :filter_input_sequences, :algorithm_selected, :sequence_size

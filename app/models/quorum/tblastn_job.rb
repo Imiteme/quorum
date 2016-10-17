@@ -11,11 +11,6 @@ module Quorum
       :foreign_key => :tblastn_job_id,
       :primary_key => :job_id
 
-    attr_accessible :expectation, :max_target_seqs, :min_bit_score,
-      :filter,  :gapped_alignments, :gap_opening_penalty,
-      :gap_extension_penalty, :gap_opening_extension, :queue,
-      :blast_dbs
-
     validates_format_of :expectation,
       :with        => /\A[+-]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?\z/,
       :message     => " - Valid formats (12, 32.05, 43e-123)",
