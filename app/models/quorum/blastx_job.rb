@@ -77,13 +77,13 @@ module Quorum
 
     def check_blast_dbs
       if self.blast_dbs.present?
-        self.blast_dbs = self.blast_dbs.delete_if { |b| b.empty? }
+        self.blast_dbs = self.blast_dbs.gsub(/[^a-zA-Z,]/, "").split(",").delete_if { |b| b.empty? }
       end
     end
 
     def set_blast_dbs
       if self.blast_dbs.present?
-        self.blast_dbs = self.blast_dbs.join(';')
+        self.blast_dbs = self.blast_dbs.gsub(/[^a-zA-Z,]/, "").join(';')
       end
     end
 
